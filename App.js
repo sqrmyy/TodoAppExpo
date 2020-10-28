@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <View style={styles.formGroup}>
-        <Text style={styles.formLabel}>やること</Text>
-        <TextInput
-          style={styles.formControl}
-          value=''
-          placeholder='何かやること'
-        />
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todoValue: '',
+    };
+  }
+
+  render() {
+    const { todoValue } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <View style={styles.formGroup}>
+          <Text style={styles.formLabel}>やること</Text>
+          <TextInput
+            style={styles.formControl}
+            value={todoValue}
+            placeholder='何かやること'
+            onChangeText={(v) => this.setState({ todoValue: v })}
+          />
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
