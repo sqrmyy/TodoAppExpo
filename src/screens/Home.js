@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { SafeAreaView, FlatList, View, Text, StyleSheet } from 'react-native';
+import {
+  SafeAreaView,
+  Button,
+  FlatList,
+  View,
+  Text,
+  StyleSheet,
+} from 'react-native';
 
 /* テストデータ */
 const todoList = [
@@ -9,8 +16,13 @@ const todoList = [
 
 export default class Home extends Component {
   render() {
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
+        <Button
+          title='登録画面へ'
+          onPress={() => navigation.navigate('Form')}
+        />
         <FlatList
           style={styles.listBox}
           data={todoList}
