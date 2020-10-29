@@ -8,12 +8,12 @@ export default class Form extends Component {
     this.state = {
       todoValue: '',
       memoValue: '',
-      todoList: [],
     };
   }
 
   render() {
-    const { todoValue, memoValue, todoList } = this.state;
+    const { todoValue, memoValue } = this.state;
+    const { navigation, todoList } = this.props;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -39,8 +39,9 @@ export default class Form extends Component {
             this.setState({
               todoValue: '',
               memoValue: '',
-              todoList: newList,
             });
+            this.props.addNewItem(newList);
+            navigation.goBack();
           }}
         />
       </SafeAreaView>

@@ -8,15 +8,9 @@ import {
   StyleSheet,
 } from 'react-native';
 
-/* テストデータ */
-const todoList = [
-  { todo: '買い物', memo: '今日の午後６時まで' },
-  { todo: '掃除', memo: '今日は必ずやる' },
-];
-
 export default class Home extends Component {
   render() {
-    const { navigation } = this.props;
+    const { navigation, todoList } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <Button
